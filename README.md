@@ -16,7 +16,7 @@ To put it simply, machine learning allows computers to learn new tasks without b
 
 Out of context, the words ‘super user-friendly’ and ‘helpful’ could be read as positive, but this is clearly a negative comment. Using sentiment analysis, computers can automatically process text data and understand it just as a human would, saving hundreds of employee hours.
 
-[source](https://monkeylearn.com/sentiment-analysis/)
+[source: monkeylearn](https://monkeylearn.com/sentiment-analysis/)
 
 # Vision / Description
 
