@@ -40,7 +40,6 @@ The basic flow from a user's perspective will be as follows:
 
  Enter Input → Receive % values for positive, negative, etc → repeat
 
-The flow of our 
 
 # Requirements
 
