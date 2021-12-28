@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,400&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: boxer-box;
+    font-family: 'Open Sans', sans-serif;
+}
+:root
+{
+    --black1: #222;
+    --white: #fff;
+    --blue: #1D9BF0;
+}
+body
+{
+
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container
+{
+    position: relative;
+    width: 100%;
+}
+.navigation
+{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: var(--black1);
+}
