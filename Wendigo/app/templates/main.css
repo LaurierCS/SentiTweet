@@ -1,6 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,400&display=swap');
-*
-{
+
+* {
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    background: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border: solid white 2px;
+    /* background: rgb(109, 195, 23); */
+}
+
+.container__navbar {
+    width: 100%;
+    height: fit-content;
+    /* background: rgb(192, 195, 23); */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container__navbar__link {
+    width: fit-content;
+    margin: 10px;
+
+}
+
+.container__content {
+
+    /* background: rgb(109, 195, 23); */
+}
+
+.searchbar {
+
+    /* background: rgb(109, 195, 23); */
+}
+
+/* {
     margin: 0;
     padding: 0;
     box-sizing: boxer-box;
@@ -29,4 +84,4 @@ body
     width: 300px;
     height: 100%;
     background-color: var(--black1);
-}
+} */
