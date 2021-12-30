@@ -17,7 +17,6 @@ certifi==2021.10.8
 charset-normalizer==2.0.6
 decorator==5.0.9
 dj-database-url==0.5.0
-Django==3.1.14
 django-cors-headers==3.10.0
 django-environ==0.7.0
 django-heroku==0.3.1
@@ -63,7 +62,7 @@ sqlparse==0.4.1
 toml==0.10.2
 tornado==6.1
 traitlets==5.0.5
-urllib3==1.26.5
+urllib3==1.26.2
 wcwidth==0.2.5
 whitenoise==5.2.0
 wrapt==1.12.1
