@@ -58,11 +58,11 @@ requests==2.26.0
 s3transfer==0.3.4
 setuptools==60.2.0; python_version >= '3.7'
 six==1.15.0
-sqlparse==0.4.2
+sqlparse==0.4.1
 toml==0.10.2
 tornado==6.1
 traitlets==5.0.5
-urllib3==1.26.5
+urllib3==1.26.2
 wcwidth==0.2.5
 whitenoise==5.2.0
 wrapt==1.12.1
