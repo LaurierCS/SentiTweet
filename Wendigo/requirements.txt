@@ -58,7 +58,7 @@ requests==2.26.0
 s3transfer==0.3.4
 setuptools==60.2.0; python_version >= '3.7'
 six==1.15.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 toml==0.10.2
 tornado==6.1
 traitlets==5.0.5
