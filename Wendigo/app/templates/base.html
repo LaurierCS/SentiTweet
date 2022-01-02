@@ -12,7 +12,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="container__header"> Twitter Sentiment Analyzer</div>
+        
+        <div class="container__header">Twitter Sentiment Analyzer</div>
         
         <div class="container__navbar">
             <div class="container__navbar__link">Home</div>
@@ -20,7 +21,12 @@
             <div class="container__navbar__link">FAQ</div>
         </div>
 
-        <div class="searchbar">Searchbar</div>
+        <div class="searchbar">
+            <input type="text" class="input" placeholder="Enter Tweet Link">
+            <div class="searchbtn">GO
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
 
         <div class="container__content" id="welcome-section">
             <div class="container__content__section" id="welcome-section"></div>
@@ -28,16 +34,33 @@
             <div class="container__content__section" id="faq-section"></div>
             <div class="container__content__section" id="about-section"></div>
         </div>
-        <div class="button">Back to Top</div>
-    </div>
-    <!-- <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <h1 style="color:white;text-align:left;"> Twitter Sentiment Analysis</h1>
-                </li>
-            </ul>
+
+        <div class="welcome">Welcome
+            <p class="welcome__paragraph">The goal of this program is to sort through a vast number of comments from a tweet and examine what the opinions, appraisals, emotions, or attitudes towards a topic, person or entity is. </p>
+            <p class="welcome__instruc">Instructions</p>
+            <p class="welcome__instruc__paragraph">1.   Find the twitter post in question and copy its link in the URL (on mobile, click ‘share’ and copy the link)<br>
+                2.  Paste the link into this website and click ‘GO’ to analyze the sentiment of the post</p>
         </div>
-    </div> -->
+        <div class="trending">Trending Topics
+            <div class="trending__box1"></div>
+            <div class="trending__box2"></div>
+            <div class="trending__box3"></div>
+        </div>
+        <div class="faq">FAQ</div>
+        <div class="faq__q1">Question 1
+            <span class="icon__expand"><ion-icon name="chevron-down-outline"></ion-icon></span>
+        </div>
+        <div class="faq__q2">Question 2
+            <span class="icon__expand"><ion-icon name="chevron-down-outline"></ion-icon></span>
+        </div>
+        <div class="faq__q3">Question 3
+            <span class="icon__expand"><ion-icon name="chevron-down-outline"></ion-icon></span>
+        </div>
+        <div class="about">About This Project</div>
+        <div class="back">Back To Top</div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
