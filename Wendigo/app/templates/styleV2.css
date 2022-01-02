@@ -11,15 +11,19 @@ body {
     margin: 0;
 }
 
-#Components
+/* Components */
 .card {}
 
-.header1{}
-.header2{}
-.header3{}
+.header1 {}
+
+.header2 {}
+
+.header3 {}
 
 
-#Site Styles
-.container{}
-.section{}
-.section__cards{}
+/* Site Styles */
+.container {}
+
+.section {}
+
+.section__cards {}
