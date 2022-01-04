@@ -12,7 +12,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="container__header"> Twitter Sentiment Analyzer</div>
+        <div class="banner-image">
+            <img class="logo"src="twitch.jpg" alt="the logo">
+        </div>
+        <div class="container__header">Twitter Sentiment Analyzer</div>
         
         <div class="container__navbar">
             <div class="container__navbar__link">Home</div>
@@ -20,7 +23,12 @@
             <div class="container__navbar__link">FAQ</div>
         </div>
 
-        <div class="searchbar">Searchbar</div>
+        <div class="searchbar">
+            <input type="text" class="input" placeholder="Enter Tweet Link">
+            <div class="searchbtn">GO
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
 
         <div class="container__content" id="welcome-section">
             <div class="container__content__section" id="welcome-section"></div>
@@ -28,16 +36,91 @@
             <div class="container__content__section" id="faq-section"></div>
             <div class="container__content__section" id="about-section"></div>
         </div>
-        <div class="button">Back to Top</div>
-    </div>
-    <!-- <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <h1 style="color:white;text-align:left;"> Twitter Sentiment Analysis</h1>
-                </li>
-            </ul>
+
+        <div class="section">Welcome
+            <p class="welcome__paragraph">The goal of this program is to sort through a vast number of comments from a tweet and examine what the opinions, appraisals, emotions, or attitudes towards a topic, person or entity is. </p>
+            <p class="welcome__instruc">Instructions</p>
+            <p class="welcome__instruc__paragraph">1.   Find the twitter post in question and copy its link in the URL (on mobile, click ‘share’ and copy the link)<br>
+                2.  Paste the link into this website and click ‘GO’ to analyze the sentiment of the post</p>
         </div>
-    </div> -->
+        <div class="section">
+            Trending Topics
+            <div class="row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+        </div>
+
+        <div class="section">FAQ
+            <button class="faq__question">Question 1:
+                <span class="icon__expand"><ion-icon name="chevron-down-outline"></ion-icon></span>
+            </button>
+            <div class="panel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <button class="faq__question">Question 2:
+                <span class="icon__expand"><ion-icon name="chevron-down-outline"></ion-icon></span>
+            </button>
+            <div class="panel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <button class="faq__question">Question 3:
+                <span class="icon__expand"><ion-icon name="chevron-down-outline"></ion-icon></span>
+            </button>
+            <div class="panel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+        
+        <div class="section">About This Project
+            <p class="aboot">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <b></b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back to top</button>
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName("faq__question");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+    </script>
+
+    <script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+
 </body>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </html>
