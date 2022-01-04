@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.fields import NullBooleanField
 from django.db.models.signals import ModelSignal
 
+# Hello u see me
+
 # Create your models here.
 #TODO: Turn off unique
 class Query(models.Model):
