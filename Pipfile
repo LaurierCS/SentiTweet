@@ -63,6 +63,8 @@ Django = "==3.1.14"
 ipython_genutils = "==0.2.0"
 Pillow = "==8.3.2"
 Pygments = "==2.9.0"
+tweepy = "*"
+vadersentiment = "*"
 
 [dev-packages]
 

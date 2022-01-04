@@ -2,12 +2,13 @@ from django.db import models
 from django.db.models.fields import NullBooleanField
 from django.db.models.signals import ModelSignal
 
-# Hello u see me
 
 # Create your models here.
 #TODO: Turn off unique
 class Query(models.Model):
-    tweet_id = models.CharField(max_length=200,unique=True) # ID of the tweet as a string
+    tweet_id = models.CharField(max_length=200, blank=False) # ID of the tweet as a string
+    date_created = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return self.tweet_id
 
