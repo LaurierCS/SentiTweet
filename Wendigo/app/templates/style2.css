@@ -11,6 +11,19 @@ body {
     margin: 0;
 }
 
+.banner-image {
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.logo {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -75px;
+    width: 100%;
+}
+
 .container {
     width: 100%;
     height: fit-content;
