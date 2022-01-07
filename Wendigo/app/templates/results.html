@@ -33,7 +33,14 @@
         <div class="tweet__box">
             <div class="tweet__box__info"></div>
         </div>
-        <div class="tweet__derive"></div>
+        <div class="tweet__derive">
+            {% block metrics %}
+                retweets: {{rs.retweets}} <br></br>
+                replies: {{rs.replies}} <br></br>
+                likes: {{rs.likes}} <br></br>
+                polarity: {{rs.polarity}}
+            {% endblock %}
+        </div>
         <div class="graph__border__box">
             <div class="graph__text"></div>
             <div class="graph__box1"></div>

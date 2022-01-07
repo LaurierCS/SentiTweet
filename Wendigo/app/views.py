@@ -25,9 +25,16 @@ def homepage_view(request):
     template_name = '../templates/base.html'
     return render(request, template_name, context)
 
-def results_view(request):
+def results_view(request,tweet_id):
     page_title = "Result"
-    context = {'page_title': page_title}
+
+    # Generate Twitter API results and Polarity Score
+    ob = Query.objects.create(tweet_id=tweet_id) # take a query URL and add the query to the table (fill the field)
+    object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id)
+    retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data()
+    rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill the other fields (null=false?)
+
+    context = {'page_title': page_title,'ob':ob,'rs':rs}
     template_name = '../templates/results.html'
     return render(request, template_name, context)
 
