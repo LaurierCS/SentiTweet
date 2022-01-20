@@ -1,12 +1,9 @@
 from django.db import models
-from django.db.models.fields import NullBooleanField
-from django.db.models.signals import ModelSignal
-
 
 
 class Query(models.Model):
-    tweet_id = models.CharField(max_length=200, blank=False) # ID of the tweet as a string
-    date_created = models.DateTimeField(auto_now_add=True)
+    tweet_id = models.CharField(max_length=200, blank=False) # ID of the tweet as a string (length will be smaller)
+    date_created = models.DateTimeField(auto_now_add=True) # add the date created to the model
     def __str__(self):
         return self.tweet_id
 

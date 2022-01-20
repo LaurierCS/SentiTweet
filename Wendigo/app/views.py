@@ -23,16 +23,30 @@ def homepage_view(request):
     page_title = "Homepage"
     context = {'page_title': page_title}
     template_name = '../templates/base.html'
-    return render(request, template_name, context)
+    return render(request, template_name, context) # should take in the form for query model as well
 
 def results_view(request,tweet_id):
     page_title = "Result"
 
-    # Generate Twitter API results and Polarity Score
-    ob = Query.objects.create(tweet_id=tweet_id) # take a query URL and add the query to the table (fill the field)
-    object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id)
-    retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data()
-    rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill the other fields (null=false?)
+    # Generate Twitter API results and Polarity Score evertime the result view is called
+    object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id) # create tweet class object
+    retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data() # get data from the tweet class object
+
+    try: # CASE: If the query model object already exists
+        ob = Query.objects.get(tweet_id=tweet_id) # get the object by tweet_id
+        rs = Result.objects.get(query=ob) # get the result model object associated with the query object
+        # add the new tweet data to the result model object
+        rs.likes=likes
+        rs.replies=replies
+        rs.retweets=retweets
+        rs.quoteTweets=quoteTweets
+        rs.polarity=polarity 
+        # save both the models
+        rs.save()
+        ob.save()
+    except: # CASE: If the query model object with the same tweet_id does not exist
+        ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
+        rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill fields of results object with tweet object data and link it to the query object
 
     context = {'page_title': page_title,'ob':ob,'rs':rs}
     template_name = '../templates/results.html'
