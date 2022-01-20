@@ -10,7 +10,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Import the models 
 from .models import Query,Result
 from .tweet_class import tweet # to get metrics and polarity
-
+# Additional Functions
+from .functions import wordCloud
 
 consumer_key = "XZ6WyOzWDLrGTcf9cHqdSv8Lt"
 consumer_secret = "7adbmfai6Z3eUwk4uysZiyvFAKg2ZmRcArb93dtBUt7g6aJg1y"
@@ -28,9 +29,10 @@ def homepage_view(request):
 def results_view(request,tweet_id):
     page_title = "Result"
 
-    # Generate Twitter API results and Polarity Score evertime the result view is called
+    # Generate Twitter API results, Polarity Score and word cloud list everytime the result view is called
     object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id) # create tweet class object
     retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data() # get data from the tweet class object
+    wordCloudList = wordCloud(text) # use the text of the tweet to generate a word cloud (freq dist and word filter)
 
     try: # CASE: If the query model object already exists
         ob = Query.objects.get(tweet_id=tweet_id) # get the object by tweet_id
@@ -44,21 +46,11 @@ def results_view(request,tweet_id):
         # save both the models
         rs.save()
         ob.save()
+        wordCloudList = wordCloud(text) # use the text of the tweet to generate a word cloud (freq dist and word filter)
     except: # CASE: If the query model object with the same tweet_id does not exist
         ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
         rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill fields of results object with tweet object data and link it to the query object
 
-    context = {'page_title': page_title,'ob':ob,'rs':rs}
+    context = {'page_title': page_title,'ob':ob,'rs':rs,'list':wordCloudList}
     template_name = '../templates/results.html'
     return render(request, template_name, context)
-
-def index(response, tweet_id):  
-    # TODO: Use error handling
-    ob = Query.objects.create(tweet_id=tweet_id) # take a query URL and add the query to the table (fill the field)
-    object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id)
-    retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data()
-    rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill the other fields (null=false?)
-    # call the function to get the details (metrics and sentiment)
-    response_html = "<h1>{}</h1><br></br><h2>Tweet: {}</h2><br></br><h2>Likes: {}</h2><br></br><h2>Replies: {}</h2><br></br><h2>Polarity: {}</h2><br></br><h2>Retweets: {}</h2><br></br><h2>Quote Tweets: {}</h2>".format(tweet_id,text,likes,replies,polarity,retweets,quoteTweets)
-    # add the result to the table and assign the query parent (one to one)
-    return HttpResponse(response_html) # create a string with the html code and then pass it here
