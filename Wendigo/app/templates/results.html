@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 <body>
@@ -39,18 +39,16 @@
             <div class="container__content__section" id="faq-section"></div>
             <div class="container__content__section" id="about-section"></div>
         </div>
+        {% block metrics %}
         <div class="tweet__box">
             <p class="text">lol racism</p>
             <div class="tweet__box__info">
-                {% block metrics %}
                 <p class="info1">{{rs.likes}} Likes</p>
                 <p class="info"> {{rs.retweets}} Retweets</p>
-                <p class="info">10 Quote Tweets</p>
-                {% endblock %}
+                <p class="info">{{rs.quoteTweets}} Quote Tweets</p>
             </div>
         </div>
         <div class="tweet__derive">
-            {% block metrics %}
             <div class="derive">Repeated Word
                 <div class="line"></div>
                 <p class="data">rtw</p>
