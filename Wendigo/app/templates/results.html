@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <title>Results</title>
 </head>
 <body>
@@ -19,10 +19,17 @@
         <div class="container__header">Twitter Sentiment Analyzer</div>
         
         <div class="container__navbar">
-            <div class="container__navbar__link">Home</div>
-            <div class="container__navbar__link">About</div>
-            <div class="container__navbar__link">FAQ</div>
+            <div class="container__navbar__link">
+                <a style="text-decoration:none" href="base.html">Home</a>
+            </div>
+            <div class="container__navbar__link">
+                <a style="text-decoration:none" href="base.html">About</a>
+            </div>
+            <div class="container__navbar__link">
+                <a style="text-decoration:none" href="base.html">FAQ</a>
+            </div>
         </div>
+
         <div class="container__content" id="welcome-section">
             <div class="container__content__section" id="welcome-section"></div>
             <div class="container__content__section" id="trending-section"></div>
@@ -30,16 +37,47 @@
             <div class="container__content__section" id="about-section"></div>
         </div>
         <div class="tweet__box">
-            <div class="tweet__box__info"></div>
+            <p class="text">lol racism</p>
+            <div class="tweet__box__info">
+                <p class="info1">100 Likes</p>
+                <p class="info"> 10 Retweets</p>
+                <p class="info">10 Quote Tweets</p>
+            </div>
         </div>
-        <div class="tweet__derive"></div>
+        <div class="tweet__derive">
+            <div class="derive">Repeated Word
+                <div class="line"></div>
+                <p class="data">rtw</p>
+            </div>
+            <div class="derive">Timeframe
+                <div class="line"></div>
+                <p class="data">varibale name</p>
+            </div>
+            <div class="derive">Replies
+                <div class="line"></div>
+                <p class="data">rep</p>
+            </div>
+            <div class="derive">Hidden Replies
+                <div class="line"></div>
+                <p class="data">hidrep</p>
+            </div>
+        </div>
         <div class="graph__border__box">
+            <div class="graph_title">Sentiment
+                <div class="graph__box"></div>
+                <span class="dot1">Positive</span>
+                <span class="dot2">Neutral</span>
+                <span class="dot3">Negative</span>
+            </div>
+            <div class="graph_title">Data Type
+                <div class="graph__box"></div>
+                <span class="dot4">Likes</span>
+                <span class="dot5">Retweets</span>
+                <span class="dot6">Quote Tweets</span>
+            </div>
             <div class="graph__text"></div>
-            <div class="graph__box1"></div>
-            <div class="graph__box2"></div>
-            <div class="graph__box3"></div>
         </div>
-        <div class="word__cluster__box"></div>
+        <div class="word__cluster__box">Word Cluster</div>
     </div>
 </body>
 </html>
