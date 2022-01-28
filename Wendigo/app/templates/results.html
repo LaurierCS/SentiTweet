@@ -41,7 +41,7 @@
         </div>
         {% block metrics %}
         <div class="tweet__box">
-            <p class="text">lol racism</p>
+            <p class="text">{{rs.text}}</p>
             <div class="tweet__box__info">
                 <p class="info1">{{rs.likes}} Likes</p>
                 <p class="info"> {{rs.retweets}} Retweets</p>
@@ -51,7 +51,8 @@
         <div class="tweet__derive">
             <div class="derive">Repeated Word
                 <div class="line"></div>
-                <p class="data">rtw</p>
+                <!-- get the index 0 word from the world cloud -->
+                <p class="data">rtw</p> 
             </div>
             <div class="derive">Timeframe
                 <div class="line"></div>

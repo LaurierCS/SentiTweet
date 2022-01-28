@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 
@@ -15,6 +16,7 @@ class Result(models.Model): #TODO: Add one to one relationship with query and ge
     replies = models.BigIntegerField()
     retweets = models.BigIntegerField()
     quoteTweets = models.BigIntegerField()
+    text = models.TextField(max_length=300,default="");
     # Sentiment
     polarity = models.DecimalField(decimal_places=2,max_digits=4)
     #s_negative = models.DecimalField(decimal_places=4,max_digits=4)

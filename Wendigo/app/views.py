@@ -43,13 +43,14 @@ def results_view(request,tweet_id):
         rs.retweets=retweets
         rs.quoteTweets=quoteTweets
         rs.polarity=polarity 
+        rs.text = text
         # save both the models
         rs.save()
         ob.save()
         wordCloudList = wordCloud(text) # use the text of the tweet to generate a word cloud (freq dist and word filter)
     except: # CASE: If the query model object with the same tweet_id does not exist
         ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
-        rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill fields of results object with tweet object data and link it to the query object
+        rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity,text=text) # fill fields of results object with tweet object data and link it to the query object
 
     context = {'page_title': page_title,'ob':ob,'rs':rs,'list':wordCloudList}
     template_name = '../templates/results.html'
