@@ -1,11 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-
 # Imports for Django views
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.http import Http404
-from django.http.response import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
+
+# Imports for Forms 
+from .forms import CreateQuery
 
 # Import the models 
 from .models import Query,Result
@@ -20,11 +18,19 @@ access_token_secret = "oKuViYQXdPeIlHWB3s4SZcVoDbuOJY4MH58Pp3gMpgQ00"
 bearer_token = "AAAAAAAAAAAAAAAAAAAAAJPoWQEAAAAAYMIXCZFC5gknuHSd6Aded3VUSxE%3D8s9Sn2yAnGCN1CdGHT1MYYu2mlQ6S9xKZNLQuajtoelj2cfDhP"
 
 
-def homepage_view(request):
+def homepage_view(response):
+    if response.method == "POST":
+        form = CreateQuery(response.POST)
+        if form.is_valid():
+            tweet_id = form.cleaned_data["query"]
+            return HttpResponseRedirect("/result/%s" %tweet_id) 
+    else:
+        form = CreateQuery() # Creates a blank form
+
     page_title = "Homepage"
-    context = {'page_title': page_title}
+    context = {'page_title': page_title,"form":form}
     template_name = '../templates/base.html'
-    return render(request, template_name, context) # should take in the form for query model as well
+    return render(response, template_name, context) # should take in the form for query model as well
 
 def results_view(request,tweet_id):
     page_title = "Result"

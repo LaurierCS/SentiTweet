@@ -32,10 +32,17 @@
         </div>
 
         <div class="searchbar">
-            <input type="text" class="input" placeholder="Enter Tweet Link">
+            <!-- <input type="text" class="input" placeholder="Enter Tweet Link">
             <a href="result/1486891787872575488">
                 <button class = "searchbtn "id = "searchbtn">GO</button>
-            </a>
+            </a> -->
+
+            <!-- insert redirect method later -->
+            <form method="post" action="">
+                {% csrf_token %}
+                {{form}}
+                <button class = "searchbtn" id = "searchbtn">GO</button>
+            </form>
         </div>
 
         <div class="container__content" id="welcome-section">
