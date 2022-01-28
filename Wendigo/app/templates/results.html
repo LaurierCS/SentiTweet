@@ -1,20 +1,23 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Results</title> <!-- Add the tweets text as well? -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Results</title>
+
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+
 </head>
 <body>
     <div class="container">
         <div class="banner-image">
-            <img class="logo"src="twitch.jpg" alt="the logo">
+            <img class="logo"src="{% static 'images/twitch.jpg' %}" alt="Twitter Logo">
         </div>
         <div class="container__header">Twitter Sentiment Analyzer</div>
         
@@ -39,12 +42,15 @@
         <div class="tweet__box">
             <p class="text">lol racism</p>
             <div class="tweet__box__info">
-                <p class="info1">100 Likes</p>
-                <p class="info"> 10 Retweets</p>
+                {% block metrics %}
+                <p class="info1">{{rs.likes}} Likes</p>
+                <p class="info"> {{rs.retweets}} Retweets</p>
                 <p class="info">10 Quote Tweets</p>
+                {% endblock %}
             </div>
         </div>
         <div class="tweet__derive">
+            {% block metrics %}
             <div class="derive">Repeated Word
                 <div class="line"></div>
                 <p class="data">rtw</p>
@@ -55,13 +61,15 @@
             </div>
             <div class="derive">Replies
                 <div class="line"></div>
-                <p class="data">rep</p>
+                <p class="data">{{rs.replies}}</p>
             </div>
             <div class="derive">Hidden Replies
                 <div class="line"></div>
                 <p class="data">hidrep</p>
             </div>
+            {% endblock %}
         </div>
+      
         <div class="graph__border__box">
             <div class="graph_title">Sentiment
                 <div class="graph__box"></div>

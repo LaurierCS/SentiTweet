@@ -21,14 +21,25 @@ bearer_token = "AAAAAAAAAAAAAAAAAAAAAJPoWQEAAAAAYMIXCZFC5gknuHSd6Aded3VUSxE%3D8s
 
 def homepage_view(request):
     page_title = "Homepage"
-
     context = {'page_title': page_title}
     template_name = '../templates/base.html'
     return render(request, template_name, context)
 
+def results_view(request,tweet_id):
+    page_title = "Result"
+
+    # Generate Twitter API results and Polarity Score
+    ob = Query.objects.create(tweet_id=tweet_id) # take a query URL and add the query to the table (fill the field)
+    object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id)
+    retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data()
+    rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity) # fill the other fields (null=false?)
+
+    context = {'page_title': page_title,'ob':ob,'rs':rs}
+    template_name = '../templates/results.html'
+    return render(request, template_name, context)
 
 def index(response, tweet_id):  
-    # TODO: Use the error handling
+    # TODO: Use error handling
     ob = Query.objects.create(tweet_id=tweet_id) # take a query URL and add the query to the table (fill the field)
     object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id)
     retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data()
@@ -37,4 +48,3 @@ def index(response, tweet_id):
     response_html = "<h1>{}</h1><br></br><h2>Tweet: {}</h2><br></br><h2>Likes: {}</h2><br></br><h2>Replies: {}</h2><br></br><h2>Polarity: {}</h2><br></br><h2>Retweets: {}</h2><br></br><h2>Quote Tweets: {}</h2>".format(tweet_id,text,likes,replies,polarity,retweets,quoteTweets)
     # add the result to the table and assign the query parent (one to one)
     return HttpResponse(response_html) # create a string with the html code and then pass it here
-

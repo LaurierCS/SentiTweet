@@ -3,19 +3,16 @@ from django.db.models.fields import NullBooleanField
 from django.db.models.signals import ModelSignal
 
 
-# Create your models here.
-#TODO: Turn off unique
+
 class Query(models.Model):
     tweet_id = models.CharField(max_length=200, blank=False) # ID of the tweet as a string
     date_created = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
         return self.tweet_id
 
 class Result(models.Model): #TODO: Add one to one relationship with query and generate the data using the function
     query = models.OneToOneField(Query,on_delete=models.CASCADE)
-    # Because when you delete a query, you delete the result related with it
-    # Each query has exactly one result set
+    # Each query has many results (depending on time)
     # Public Metrics
     likes = models.BigIntegerField()
     replies = models.BigIntegerField()
