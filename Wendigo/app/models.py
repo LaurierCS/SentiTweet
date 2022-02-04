@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 # one to one relationship with user
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.user.username)
 
