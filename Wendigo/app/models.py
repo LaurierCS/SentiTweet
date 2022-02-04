@@ -1,8 +1,15 @@
 from email.policy import default
+from tkinter import CASCADE
 from django.db import models
 from django.forms import TimeField
 from sqlalchemy import null
+from django.contrib.auth.models import User
+# one to one relationship with user
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=CASCADE)
+    def __str__(self):
+        return str(self.user.username)
 
 class Query(models.Model):
     tweet_id = models.CharField(max_length=200, blank=False) # ID of the tweet as a string (length will be smaller)
