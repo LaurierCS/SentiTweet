@@ -44,7 +44,7 @@
             <p class="text">{{rs.text}}</p>
             <div class="tweet__box__info">
                 <p class="info1">{{rs.likes}} Likes</p>
-                <p class="info"> {{rs.retweets}} Retweets</p>
+                <p class="info">{{rs.retweets}} Retweets</p>
                 <p class="info">{{rs.quoteTweets}} Quote Tweets</p>
             </div>
         </div>
@@ -66,7 +66,6 @@
                 <div class="line"></div>
                 <p class="data">{{rs.polarity}}</p>
             </div>
-            {% endblock %}
         </div>
       
         <div class="graph__border__box">
@@ -78,13 +77,14 @@
             </div>
             <div class="graph_title">Data Type
                 <div class="graph__box"></div>
-                <span class="dot4">Likes</span>
-                <span class="dot5">Retweets</span>
-                <span class="dot6">Quote Tweets</span>
+                <span class="dot4">{{rs.likes}} Likes</span>
+                <span class="dot5">{{rs.retweets}} Retweets</span>
+                <span class="dot6">{{rs.quoteTweets}} Quote Tweets</span>
             </div>
             <div class="graph__text"></div>
         </div>
         <div class="word__cluster__box">Word Cluster</div>
+        {% endblock %}
     </div>
 </body>
 </html>

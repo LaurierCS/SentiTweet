@@ -43,7 +43,7 @@ def results_view(request,tweet_id):
 
     # Generate Twitter API results, Polarity Score and word cloud list everytime the result view is called
     object = tweet(bearer_token,consumer_key,consumer_secret,access_token,access_token_secret,tweet_id) # create tweet class object
-    retweets,quoteTweets,likes,replies,text,polarity,__,__,__ = object.get_data() # get data from the tweet class object
+    retweets,quoteTweets,likes,replies,text,polarity,neg,pos,neu = object.get_data() # get data from the tweet class object
     wordCloudList = wordCloud(text) # use the text of the tweet to generate a word cloud (freq dist and word filter)
 
     try: # CASE: If the query model object already exists
@@ -56,6 +56,10 @@ def results_view(request,tweet_id):
         rs.quoteTweets=quoteTweets
         rs.polarity=polarity 
         rs.text = text
+        rs.score_neg = neg
+        rs.score_pos = pos
+        rs.score_neu = neu
+        
         # save both the models
         rs.save()
         ob.save()

@@ -1,6 +1,7 @@
 from email.policy import default
 from django.db import models
 from django.forms import TimeField
+from sqlalchemy import null
 
 
 class Query(models.Model):
@@ -10,17 +11,17 @@ class Query(models.Model):
         return self.tweet_id
 
 class Result(models.Model): #TODO: Add one to one relationship with query and generate the data using the function
-    query = models.OneToOneField(Query,on_delete=models.CASCADE)
-    # Each query has many results (depending on time)
+    query = models.OneToOneField(Query,on_delete=models.CASCADE) # Each query has many results (depending on time)
+
     # Public Metrics
     likes = models.BigIntegerField()
     replies = models.BigIntegerField()
     retweets = models.BigIntegerField()
     quoteTweets = models.BigIntegerField()
     text = models.TextField(max_length=300,default="")
-    #timeOfResult = TimeField.auto_now_add
+    
     # Sentiment
-    polarity = models.DecimalField(decimal_places=2,max_digits=4)
-    #s_negative = models.DecimalField(decimal_places=4,max_digits=4)
-    #s_positive = models.DecimalField(decimal_places=4,max_digits=4)
-    #s_neutral = models.DecimalField(decimal_places=4,max_digits=4)
+    polarity = models.DecimalField(decimal_places=2,max_digits=4,null=True)
+    score_neg = models.DecimalField(decimal_places=2,max_digits=4,null=True)
+    score_pos = models.DecimalField(decimal_places=2,max_digits=4,null=True)
+    score_neu = models.DecimalField(decimal_places=2,max_digits=4,null=True)
