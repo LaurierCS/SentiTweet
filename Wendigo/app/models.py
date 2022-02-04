@@ -1,5 +1,6 @@
 from email.policy import default
 from django.db import models
+from django.forms import TimeField
 
 
 class Query(models.Model):
@@ -16,7 +17,8 @@ class Result(models.Model): #TODO: Add one to one relationship with query and ge
     replies = models.BigIntegerField()
     retweets = models.BigIntegerField()
     quoteTweets = models.BigIntegerField()
-    text = models.TextField(max_length=300,default="");
+    text = models.TextField(max_length=300,default="")
+    #timeOfResult = TimeField.auto_now_add
     # Sentiment
     polarity = models.DecimalField(decimal_places=2,max_digits=4)
     #s_negative = models.DecimalField(decimal_places=4,max_digits=4)

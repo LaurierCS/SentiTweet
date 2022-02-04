@@ -25,7 +25,7 @@ def homepage_view(response):
             tweet_url = form.cleaned_data["query"]
             tweet_id = tweet_url.split('/')[-1] #Extract the ID from the URL
             # Check if the tweet_id is valid, if not thorw an error message
-            if (len(id)==19 and id.isnumeric()): #Conditions for a valid ID
+            if (len(tweet_id)==19 and tweet_id.isnumeric()): #Conditions for a valid ID
                 return HttpResponseRedirect("/result/%s" %tweet_id) # redirect to the right URL and create an entry with the model
             
             # else throw an error message on the HTML page saying its invalid
