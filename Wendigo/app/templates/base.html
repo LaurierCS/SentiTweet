@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="banner-image" id ="top">
-            <img class="logo"src="twitch.jpg" alt="Twitter Logo">
+            <img class="logo"src="static/images/twitch.jpg" alt="Twitter Logo">
         </div>
         <div class="container__header">Twitter Sentiment Analyzer</div>
         
@@ -30,10 +32,17 @@
         </div>
 
         <div class="searchbar">
-            <input type="text" class="input" placeholder="Enter Tweet Link">
-            <a href="results.html">
+            <!-- <input type="text" class="input" placeholder="Enter Tweet Link">
+            <a href="result/1486891787872575488">
                 <button class = "searchbtn "id = "searchbtn">GO</button>
-            </a>
+            </a> -->
+
+            <!-- insert redirect method later -->
+            <form method="post" action="" class="input">
+                {% csrf_token %}
+                {{form}}
+                <button class = "searchbtn" id = "searchbtn">GO</button>
+            </form>
         </div>
 
         <div class="container__content" id="welcome-section">
