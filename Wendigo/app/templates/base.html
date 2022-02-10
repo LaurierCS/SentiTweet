@@ -58,14 +58,29 @@
             <p class="welcome__instruc__paragraph">1.   Find the twitter post in question and copy its link in the URL (on mobile, click ‘share’ and copy the link)<br>
                 2.  Paste the link into this website and click ‘GO’ to analyze the sentiment of the post</p>
         </div>
+        <!-- arbitary place holder for the block -->
+        {% block data %} 
         <div class="section">
             Trending Topics
             <div class="row">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+                <div class="card">
+                    <li>{{trend_list.0.0}}</li>
+                    <li>{{trend_list.1.0}}</li>
+                    <li>{{trend_list.2.0}}</li>
+                </div>
+                <div class="card">
+                    <li>{{trend_list.3.0}}</li>
+                    <li>{{trend_list.4.0}}</li>
+                    <li>{{trend_list.5.0}}</li>
+                </div>
+                <div class="card">
+                    <li>{{trend_list.6.0}}</li>
+                    <li>{{trend_list.7.0}}</li>
+                    <li>{{trend_list.8.0}}</li>
+                </div>
             </div>
         </div>
+        {% endblock %}
 
         <div class="section" id = "faq">FAQ
             <button class="faq__question">Question 1:
