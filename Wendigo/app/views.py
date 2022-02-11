@@ -9,14 +9,13 @@ from .forms import CreateQuery
 from .models import Query,Result
 from .tweet_class import tweet # to get metrics and polarity
 # Additional Functions
-from .functions import wordCloud
+from .functions import wordCloud, getTrendList
 
 consumer_key = "XZ6WyOzWDLrGTcf9cHqdSv8Lt"
 consumer_secret = "7adbmfai6Z3eUwk4uysZiyvFAKg2ZmRcArb93dtBUt7g6aJg1y"
 access_token  = "1350238888741236745-KJhi9SEqPnbBSOnEfkqFFa9tlSYQBJ"
 access_token_secret = "oKuViYQXdPeIlHWB3s4SZcVoDbuOJY4MH58Pp3gMpgQ00"
 bearer_token = "AAAAAAAAAAAAAAAAAAAAAJPoWQEAAAAAYMIXCZFC5gknuHSd6Aded3VUSxE%3D8s9Sn2yAnGCN1CdGHT1MYYu2mlQ6S9xKZNLQuajtoelj2cfDhP"
-
 
 def homepage_view(response):
     if response.method == "POST":
@@ -34,7 +33,9 @@ def homepage_view(response):
         form = CreateQuery() # Creates a blank form
 
     page_title = "Homepage"
-    context = {'page_title': page_title,"form":form}
+    trendList = getTrendList() #2D list
+
+    context = {'page_title': page_title,"form":form, 'trend_list':trendList}
     template_name = '../templates/base.html'
     return render(response, template_name, context) # should take in the form for query model as well
 
