@@ -8,4 +8,4 @@ def wordCloud(sent): #NOTE: Takes a sentence and returns the most frequent words
 
 def getTrendList():
     # returns a 2D list where item 0 is a string of the trending topic and item at index 1 is the link to be used as an HREF
-    return [[val,"https://twitter.com/hashtag/{}".format(val.replace(" ",""))] for val in TrendReq().trending_searches(pn='united_states')[0]] # get the top 20 google trends
+    return [[val,"https://twitter.com/hashtag/{}".format(val.replace(" ",""))] for val in TrendReq().trending_searches(pn='united_states')[0]] # get the top 20 google trendsgi
