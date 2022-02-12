@@ -1,8 +1,4 @@
-from email.policy import default
-from tkinter import CASCADE
 from django.db import models
-from django.forms import TimeField
-from sqlalchemy import null
 from django.contrib.auth.models import User
 # one to one relationship with user
 
