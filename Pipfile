@@ -1,8 +1,3 @@
-[[source]]
-url = "https://pypi.org/simple"
-verify_ssl = true
-name = "pypi"
-
 [packages]
 appnope = "==0.1.2"
 asgiref = "==3.3.1"
@@ -64,9 +59,10 @@ ipython_genutils = "==0.2.0"
 Pillow = "==8.3.2"
 Pygments = "==2.9.0"
 tweepy = "*"
-vadersentiment = "*"
+os = "*"
+pathlib = "*"
+sys = "*"
+numpy = "*"
+vaderSentiment = "*"
 
 [dev-packages]
-
-[requires]
-python_version = "3.9"
