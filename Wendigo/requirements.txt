@@ -69,3 +69,6 @@ wrapt==1.12.1
 os
 pathlib
 sys
+numpy
+vaderSentiment
+tweepy
