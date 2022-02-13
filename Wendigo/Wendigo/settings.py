@@ -48,6 +48,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Wendigo.urls'
@@ -74,12 +77,24 @@ WSGI_APPLICATION = 'Wendigo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbilqfprqdo9g0',
+        'HOST': 'ec2-34-205-46-149.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'txgqtveuclejll',
+        'PASSWORD': '2558742e985bd0d2c603bde3ff107854c9acd4c317aef53216c7c06ff02575c2',
     }
 }
+
 
 
 # Password validation
