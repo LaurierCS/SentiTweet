@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import environ
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pr1d_&v-wikd@-1!zs%%)x%_$!4667kq*rdv_w-(3ni4ynihye'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -150,3 +152,5 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'assets')
+
+django_heroku.settings(locals())
