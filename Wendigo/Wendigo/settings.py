@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-pr1d_&v-wikd@-1!zs%%)x%_$!4667kq*rdv_w-(3ni4ynihye
 DEBUG = False
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'clubplatform.herokuapp.com', ]
 
 
 # Application definition
