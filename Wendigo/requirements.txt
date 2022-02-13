@@ -70,3 +70,4 @@ pathlib
 numpy
 vaderSentiment
 tweepy
+nltk
