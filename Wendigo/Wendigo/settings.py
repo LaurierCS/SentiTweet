@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-pr1d_&v-wikd@-1!zs%%)x%_$!4667kq*rdv_w-(3ni4ynihye
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', 'clubplatform.herokuapp.com', ]
+ALLOWED_HOSTS = ['127.0.0.1', 'sentitweet-app.herokuapp.com', ]
 
 
 # Application definition
@@ -80,12 +79,12 @@ WSGI_APPLICATION = 'Wendigo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 DATABASES = {
     'default': {
@@ -97,7 +96,6 @@ DATABASES = {
         'PASSWORD': '2558742e985bd0d2c603bde3ff107854c9acd4c317aef53216c7c06ff02575c2',
     }
 }
-
 
 
 # Password validation
@@ -133,8 +131,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -145,13 +141,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = [
+# STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static"),
-#]
+# ]
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'assets')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'assets')
 
 django_heroku.settings(locals())
