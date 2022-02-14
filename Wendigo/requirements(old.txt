@@ -32,7 +32,7 @@ parso==0.8.2
 pep8==1.7.1
 pexpect==4.8.0
 pickleshare==0.7.5
-pillow==8.3.2
+pillow==9.0.0
 platformdirs==2.3.0
 prompt-toolkit==3.0.18
 psycopg2-binary==2.8.6
