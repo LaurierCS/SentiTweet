@@ -26,8 +26,8 @@ def homepage_view(response):
             #NOTE: Check if the tweet_id is valid if not thorw an error message
             if (len(tweet_id)==19 and tweet_id.isnumeric()): #Conditions for a valid ID
                 return HttpResponseRedirect("/result/%s" %tweet_id) # redirect to the right URL and create an entry with the model
-            
-            # else throw an error message on the HTML page saying its invalid
+
+            # else throw an error message on the HTML page saying its invalid (for now its normal, create a invalid page)
             return HttpResponseRedirect("/result/%s" %tweet_id) 
     else:
         form = CreateQuery() # Creates a blank form
