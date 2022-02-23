@@ -51,8 +51,9 @@ def results_view(request,tweet_id):
         pass
         ## use the text of the tweet to generate a word cloud (freq dist and word filter)
     except: # CASE: If the query model object with the same tweet_id does not exist
-        ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
-        rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity,text=text,score_neg=neg,score_pos=pos,score_neu=neu) # fill fields of results object with tweet object data and link it to the query object
+        pass
+    ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
+    rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity,text=text,score_neg=neg,score_pos=pos,score_neu=neu) # fill fields of results object with tweet object data and link it to the query object
 
     context = {'page_title': page_title,'ob':ob,'rs':rs,'list':wordCloudList}
     template_name = '../templates/results.html'
