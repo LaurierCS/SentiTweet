@@ -48,12 +48,26 @@ def results_view(request,tweet_id):
     wordCloudList = wordCloud(text) # use the text of the tweet to generate a word cloud (freq dist and word filter)
 
     try: # CASE: If the query model object already exists
-        pass
-        ## use the text of the tweet to generate a word cloud (freq dist and word filter)
+        ob = Query.objects.get(tweet_id=tweet_id) # get the object by tweet_id
+        rs = Result.objects.get(query=ob) # get the result model object associated with the query object
+        # add the new tweet data to the result model object
+        rs.likes=likes
+        rs.replies=replies
+        rs.retweets=retweets
+        rs.quoteTweets=quoteTweets
+        rs.polarity=polarity 
+        rs.text = text
+        rs.score_neg = neg
+        rs.score_pos = pos
+        rs.score_neu = neu
+
+        # save both the models
+        rs.save()
+        ob.save()
+        wordCloudList = wordCloud(text) # use the text of the tweet to generate a word cloud (freq dist and word filter)
     except: # CASE: If the query model object with the same tweet_id does not exist
-        pass
-    ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
-    rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity,text=text,score_neg=neg,score_pos=pos,score_neu=neu) # fill fields of results object with tweet object data and link it to the query object
+        ob = Query.objects.create(tweet_id=tweet_id) # take a tweet ID and add it to the query to the table (fill the field)
+        rs = Result.objects.create(query=ob,likes=likes,replies=replies,retweets=retweets,quoteTweets=quoteTweets,polarity=polarity,text=text,score_neg=neg,score_pos=pos,score_neu=neu) # fill fields of results object with tweet object data and link it to the query object
 
     context = {'page_title': page_title,'ob':ob,'rs':rs,'list':wordCloudList}
     template_name = '../templates/results.html'
